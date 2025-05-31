@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -6,66 +5,70 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "@/hooks/use-toast";
 import { heart } from "lucide-react";
-
 const Index = () => {
   const [mood, setMood] = useState("");
   const [complaint, setComplaint] = useState("");
   const [solution, setSolution] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const moods = [
-    { value: "angry", label: "😡 Angry", emoji: "😡" },
-    { value: "sad", label: "😔 Sad", emoji: "😔" },
-    { value: "crying", label: "😢 Crying", emoji: "😢" },
-    { value: "huffing", label: "😤 Huffing", emoji: "😤" },
-    { value: "pleading", label: "🥺 Pleading", emoji: "🥺" },
-    { value: "confused", label: "😶‍🌫️ Confused", emoji: "😶‍🌫️" },
-  ];
-
+  const moods = [{
+    value: "angry",
+    label: "😡 Angry",
+    emoji: "😡"
+  }, {
+    value: "sad",
+    label: "😔 Sad",
+    emoji: "😔"
+  }, {
+    value: "crying",
+    label: "😢 Crying",
+    emoji: "😢"
+  }, {
+    value: "huffing",
+    label: "😤 Huffing",
+    emoji: "😤"
+  }, {
+    value: "pleading",
+    label: "🥺 Pleading",
+    emoji: "🥺"
+  }, {
+    value: "confused",
+    label: "😶‍🌫️ Confused",
+    emoji: "😶‍🌫️"
+  }];
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!mood || !complaint) {
       toast({
         title: "Oops! 🥺",
         description: "Please fill in your mood and tell me what I did wrong, my queen!",
-        variant: "destructive",
+        variant: "destructive"
       });
       return;
     }
-
     setIsSubmitted(true);
     toast({
       title: "Complaint Received! 💝",
-      description: "Your complaint has been sent to your guilty boyfriend's heart.",
+      description: "Your complaint has been sent to your guilty boyfriend's heart."
     });
   };
-
   const resetForm = () => {
     setMood("");
     setComplaint("");
     setSolution("");
     setIsSubmitted(false);
   };
-
   if (isSubmitted) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-pink-100 via-purple-50 to-indigo-100 flex items-center justify-center p-4 relative overflow-hidden">
+    return <div className="min-h-screen bg-gradient-to-br from-pink-100 via-purple-50 to-indigo-100 flex items-center justify-center p-4 relative overflow-hidden">
         {/* Floating Hearts Background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute text-pink-300 animate-bounce opacity-60"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${3 + Math.random() * 2}s`,
-              }}
-            >
+          {[...Array(20)].map((_, i) => <div key={i} className="absolute text-pink-300 animate-bounce opacity-60" style={{
+          left: `${Math.random() * 100}%`,
+          top: `${Math.random() * 100}%`,
+          animationDelay: `${Math.random() * 3}s`,
+          animationDuration: `${3 + Math.random() * 2}s`
+        }}>
               💕
-            </div>
-          ))}
+            </div>)}
         </div>
 
         <Card className="w-full max-w-md mx-auto shadow-2xl border-pink-200 bg-white/90 backdrop-blur-sm">
@@ -84,37 +87,25 @@ const Index = () => {
           <CardContent className="text-center">
             <div className="space-y-4">
               <div className="text-4xl animate-pulse">💖</div>
-              <Button
-                onClick={resetForm}
-                className="bg-gradient-to-r from-pink-400 to-purple-500 hover:from-pink-500 hover:to-purple-600 text-white px-8 py-3 rounded-full transform transition-all hover:scale-105 shadow-lg"
-              >
+              <Button onClick={resetForm} className="bg-gradient-to-r from-pink-400 to-purple-500 hover:from-pink-500 hover:to-purple-600 text-white px-8 py-3 rounded-full transform transition-all hover:scale-105 shadow-lg">
                 Submit Another Complaint 😈
               </Button>
             </div>
           </CardContent>
         </Card>
-      </div>
-    );
+      </div>;
   }
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-100 via-purple-50 to-indigo-100 flex items-center justify-center p-4 relative overflow-hidden">
+  return <div className="min-h-screen bg-gradient-to-br from-pink-100 via-purple-50 to-indigo-100 flex items-center justify-center p-4 relative overflow-hidden">
       {/* Floating Hearts Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(15)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute text-pink-300 animate-bounce opacity-40"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${4 + Math.random() * 2}s`,
-            }}
-          >
+        {[...Array(15)].map((_, i) => <div key={i} className="absolute text-pink-300 animate-bounce opacity-40" style={{
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        animationDelay: `${Math.random() * 3}s`,
+        animationDuration: `${4 + Math.random() * 2}s`
+      }}>
             💕
-          </div>
-        ))}
+          </div>)}
       </div>
 
       <Card className="w-full max-w-lg mx-auto shadow-2xl border-pink-200 bg-white/95 backdrop-blur-sm animate-fade-in">
@@ -147,15 +138,9 @@ const Index = () => {
                   <SelectValue placeholder="How are you feeling, my queen? 🥺" />
                 </SelectTrigger>
                 <SelectContent className="bg-white border-pink-200">
-                  {moods.map((moodOption) => (
-                    <SelectItem
-                      key={moodOption.value}
-                      value={moodOption.value}
-                      className="hover:bg-pink-50"
-                    >
+                  {moods.map(moodOption => <SelectItem key={moodOption.value} value={moodOption.value} className="hover:bg-pink-50">
                       {moodOption.label}
-                    </SelectItem>
-                  ))}
+                    </SelectItem>)}
                 </SelectContent>
               </Select>
             </div>
@@ -165,13 +150,7 @@ const Index = () => {
               <label className="text-pink-700 font-medium flex items-center gap-2">
                 <span>What did this idiot (me 😅) do again?</span>
               </label>
-              <Textarea
-                value={complaint}
-                onChange={(e) => setComplaint(e.target.value)}
-                placeholder="Tell me exactly what I did wrong, and don't hold back... 💔"
-                className="border-pink-200 focus:border-pink-400 bg-pink-50/50 min-h-[100px] resize-none"
-                required
-              />
+              <Textarea value={complaint} onChange={e => setComplaint(e.target.value)} placeholder="Tell me exactly what I did wrong, and don't hold back... 💔" className="border-pink-200 focus:border-pink-400 bg-pink-50/50 min-h-[100px] resize-none" required />
             </div>
 
             {/* Solution Text */}
@@ -180,32 +159,20 @@ const Index = () => {
                 <span>How can I make it better, meri jaan?</span>
                 <span className="text-xl">🥺</span>
               </label>
-              <Textarea
-                value={solution}
-                onChange={(e) => setSolution(e.target.value)}
-                placeholder="Give me a chance to fix this... What would make my queen happy again? 🌹"
-                className="border-pink-200 focus:border-pink-400 bg-pink-50/50 min-h-[80px] resize-none"
-              />
+              <Textarea value={solution} onChange={e => setSolution(e.target.value)} placeholder="Give me a chance to fix this... What would make my queen happy again? 🌹" className="border-pink-200 focus:border-pink-400 bg-pink-50/50 min-h-[80px] resize-none" />
             </div>
 
             {/* Submit Button */}
-            <Button
-              type="submit"
-              className="w-full bg-gradient-to-r from-pink-400 to-purple-500 hover:from-pink-500 hover:to-purple-600 text-white py-3 rounded-full transform transition-all hover:scale-105 shadow-lg text-lg font-medium"
-            >
+            <Button type="submit" className="w-full bg-gradient-to-r from-pink-400 to-purple-500 hover:from-pink-500 hover:to-purple-600 text-white py-3 rounded-full transform transition-all hover:scale-105 shadow-lg text-lg font-medium">
               Send this to your guilty boyfriend 😞
             </Button>
           </form>
 
           <div className="mt-6 text-center">
-            <p className="text-pink-400 text-xs">
-              Made with 💖 by your loving (but sometimes stupid) boyfriend
-            </p>
+            <p className="text-pink-400 text-xs">Made with 💖 by your Rishav (but sometimes stupid) </p>
           </div>
         </CardContent>
       </Card>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
