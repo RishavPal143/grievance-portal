@@ -210,9 +210,7 @@ const Index = () => {
                 </div>
 
                 {/* Submit Button */}
-                <Button type="submit" className="w-full bg-gradient-to-r from-pink-400 to-purple-500 hover:from-pink-500 hover:to-purple-600 text-white py-3 rounded-full transform transition-all hover:scale-105 shadow-lg text-lg font-medium">
-                  Send this to your guilty boyfriend 😞
-                </Button>
+                <Button type="submit" className="w-full bg-gradient-to-r from-pink-400 to-purple-500 hover:from-pink-500 hover:to-purple-600 text-white py-3 rounded-full transform transition-all hover:scale-105 shadow-lg text-lg font-medium">Send this to your guilty man 😞</Button>
               </form>
 
               <div className="mt-6 text-center">
